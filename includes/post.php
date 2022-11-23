@@ -1,5 +1,7 @@
 <?php
 
+$error = '';
+
 if (isset($_POST["post"])){
 
   $currentDirectory = getcwd();
@@ -45,6 +47,7 @@ if (isset($_POST["post"])){
       
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName')");    
 
-    }
-    
+}
+  
+
 ?>
