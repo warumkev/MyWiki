@@ -30,6 +30,7 @@
   </p>
 </div>
 <br>
+<br>
 <div class="row">
 <?php while ($row = pg_fetch_assoc($results)) { 
   
