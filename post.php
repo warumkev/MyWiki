@@ -5,9 +5,15 @@
     if(isset($_GET['id'])) {
     $postid = $_GET['id'];
 
-    $results = pg_query($dbConn, "SELECT title, content, cover FROM posts WHERE id=$postid");
+    $results = pg_query($dbConn, "SELECT title, content, cover, views FROM public.posts WHERE id=$postid");
     
   $row = pg_fetch_assoc($results);
+
+  $views = $row['views'];
+
+  $newViews = $views+1;
+
+ pg_query($dbConn, "UPDATE public.posts SET views=$newViews WHERE id=$postid");
 
   } else {
     return;
@@ -27,8 +33,6 @@
 
   <?php include('./components/navbar.php'); ?>
 
-<br>
-
 <div class="container">
 
 <img src="./img/<?php echo $row['cover']; ?>" class="rounded mx-auto d-block img-thumbnail w-25 p-3" alt="./img/<?php echo $row['cover']; ?>">
@@ -36,7 +40,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col"><?php echo $row['title']; ?></th>
+      <th scope="col"><?php echo $row['title'];?></th>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +49,8 @@
     </tr>
   </tbody>
 </table>
+<?php include('./components/footer.php'); ?>
+
 
 </div>
 

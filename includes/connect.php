@@ -24,7 +24,7 @@
     
     } else {
     
-        $results = pg_query($dbConn, "SELECT id, title, cover FROM public.posts");
+        $results = pg_query($dbConn, "SELECT id, title, cover FROM public.posts ORDER BY id");
     
     }
     
@@ -93,5 +93,5 @@
           pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName')");    
     
     }
-
+    
 ?>

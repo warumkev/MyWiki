@@ -18,7 +18,7 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-        <input class="btn btn-outline-success" type="submit">
+        <input class="btn btn-outline-warning" type="submit">
       </form>
     </div>
   </div>
