@@ -2,6 +2,11 @@
     session_start();
     include('./includes/connect.php');
 
+    if (!isset($_SESSION['loggedin'])) {
+      header("Location: home.php");
+  }
+  
+
 ?>
 
 <!doctype html>
@@ -41,7 +46,7 @@
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
 </div>
 <div class="input-group mb-3">
-<input type="file" name="coverName" id="fileToUpload">
+<input type="file" class="form-control" name="coverName" id="fileToUpload">
 </div>
 <div class="col-auto">
     <input type="submit" class="btn btn-primary mb-3" name="post">

@@ -5,13 +5,20 @@
     if(isset($_GET['id'])) {
     $postid = $_GET['id'];
 
-    $results = pg_query($dbConn, "SELECT title, content, cover, views FROM public.posts WHERE id=$postid");
+    $results = pg_query($dbConn, "SELECT title, content, cover, views, author FROM public.posts WHERE id=$postid");
     
   $row = pg_fetch_assoc($results);
 
   $views = $row['views'];
 
   $newViews = $views+1;
+
+  $cover = $row['cover'];
+  $authorid = $row['author'];
+
+  $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
+
+  $cardAuthor = pg_fetch_assoc($getAuthor);
 
  pg_query($dbConn, "UPDATE public.posts SET views=$newViews WHERE id=$postid");
 
@@ -26,7 +33,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MyWiki | Beiträge</title>
+    <title>MyWiki | <?php echo $row['title'];?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
@@ -35,7 +42,12 @@
 
 <div class="container">
 
-<img src="./img/<?php echo $row['cover']; ?>" class="rounded mx-auto d-block img-thumbnail w-25 p-3" alt="./img/<?php echo $row['cover']; ?>">
+<div class="card rounded mx-auto d-block img-thumbnail w-25 p-3" style="width: 18rem;">
+  <img src="./img/<?php echo $row['cover']; ?>" class="card-img-top" alt="./img/<?php echo $row['cover']; ?>">
+  <div class="card-body">
+    <p class="card-text">Veröffentlicht von <a href="home.php?authorid=<?php echo $row['author'];?>"><?php echo $cardAuthor['username'];?></a></p>
+  </div>
+</div>
 
 <table class="table">
   <thead>
