@@ -20,11 +20,7 @@ include('./includes/connect.php');
 
  <div class="container">
 
-<md-block>
-
-
-
-</md-block>
+<?php echo $rowMin['id']; echo $rowMax['id']; echo $randomPost;?>
 
 
 </div>

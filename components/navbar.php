@@ -13,21 +13,21 @@
         </li>
         <?php if (!isset($_SESSION['loggedin'])) { ?>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Anmelden</a>
+          <a class="nav-link active" href="login.php">Anmelden</a>
         </li>
         <?php } else { ?>
         <li class="nav-item">
-          <a class="nav-link" href="create.php">Beitrag erstellen</a>
+          <a class="nav-link active" href="create.php">Beitrag erstellen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="account.php">Mein Account</a>
+          <a class="nav-link active" href="account.php">Mein Account</a>
         </li>
         <?php } ?>
         <li class="nav-item">
-          <a class="nav-link" href="faq.php">FAQ</a>
+          <a class="nav-link active" href="faq.php">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link active" href="post.php?id=<?php echo $randomPost;?>">Entdecken</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

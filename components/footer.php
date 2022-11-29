@@ -36,10 +36,19 @@ $favoritePostInfo = pg_fetch_assoc($favoritePost);
 
   <div class="col mb-3">
     <h5>Beliebtester Beitrag</h5>
-    <ul class="nav flex-column">
-      <li class="nav-item mb-2"><a href="post.php?id=<?php echo $favoritePostInfo['id']; ?>" class="nav-link p-0 text-muted">
+    <ul class="nav flex-column">  
+      <li class="nav-item mb-2">
+      <?php
+      
+      $checkFavorite = pg_num_rows($favoritePost);
+
+      if($checkFavorite < 1) {?>  
+
+      <?php } else {?>
+      <a href="post.php?id=<?php echo $favoritePostInfo['id']; ?>" class="nav-link p-0 text-muted">
           <?php echo $favoritePostInfo['title']; ?>
         </a><span class="badge badge-warning">Warning</span></li>
+        <?php } ?>
     </ul>
   </div>
 

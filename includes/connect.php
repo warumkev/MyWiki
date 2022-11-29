@@ -46,6 +46,18 @@ if (isset($_GET['authorid'])) {
 
 } 
 
+// Zufälligen Beitrag öffnen
+
+$min = pg_query($dbConn, "SELECT * FROM public.posts WHERE id = (SELECT MIN(id) FROM public.posts)");
+
+$rowMin = pg_fetch_assoc($min);
+
+$max = pg_query($dbConn, "SELECT * FROM public.posts WHERE id = (SELECT MAX(id) FROM public.posts)");
+
+$rowMax = pg_fetch_assoc($max);
+
+$randomPost = rand($rowMin['id'], $rowMax['id']);
+
 // Beiträge hochladen
 
 $uploadSuccess = False;
