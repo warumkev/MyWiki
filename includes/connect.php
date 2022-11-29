@@ -110,11 +110,17 @@ $updateSuccess = False;
 
 if (isset($_POST["update"])) {
 
+  $postid = $_GET['p'];
   $newTitle = $_POST['title'];
   $newContent = $_POST['content'];
   $newAuthor = $_SESSION['userid'];
 
-  pg_query($dbConn, "UPDATE public.posts SET title='$newTitle' content='$newContent' author='$newAuthor'");
+  $newContent = nl2br($newContent);
+  $newContent = stripslashes($newContent);
+
+  pg_query($dbConn, "UPDATE public.posts SET title='$newTitle', content='$newContent', author='$newAuthor' WHERE id=$postid");
+
+  header("Location: ./home.php");
 
 }
 
