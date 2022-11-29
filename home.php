@@ -26,7 +26,7 @@ include('./includes/connect.php');
     <div class="jumbotron">
       <h1 class="display-4">myWiki</h1>
       <p class="lead">Willkommen auf der myWiki-Website. Hier kannst du dich mit deinen Kollegen über verschiedenste
-        Themen austauschen.</p>
+        Themen austauschen. </p>
       <hr class="my-4">
       <p>Du kannst auch auf schon gelistete Ergebnisse zurückgreifen, um dir die Arbeit so entspannt wie möglich zu
         gestalten.</p>
@@ -49,8 +49,8 @@ include('./includes/connect.php');
 
       ?>
       <div class="col-sm-6" style="width: 16rem;">
-        <div class="card mb-4">
-          <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail" alt="/img/<?php echo $cover; ?>">
+        <div class="card mb-4 text-white bg-dark">
+          <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail" style="height: 14rem; object-fit: cover;" alt="/img/<?php echo $cover; ?>">
           <div class="card-body">
             <h5 class="card-title">
               <?php echo $titel; ?>
@@ -58,7 +58,7 @@ include('./includes/connect.php');
             <p class="card-text">Verfasst von:
               <?php echo $cardAuthor['username']; ?>
             </p>
-            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-dark">Zum Beitrag</a>
+            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-light">Zum Beitrag</a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ include('./includes/connect.php');
 
     <?php include('./components/footer.php'); ?>
 
-    <div>
+      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>

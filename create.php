@@ -38,12 +38,12 @@
 <?php } else {}?>  
 <form class="row g-3" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Titel des Beitrags</label>
-  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Gib den Titel des Beitrags ein." name="title">
+  <label for="title" class="form-label">Titel des Beitrags</label>
+  <input type="text" class="form-control" id="title" placeholder="Gib den Titel des Beitrags ein." name="title">
 </div>
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Inhalt des Beitrags</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+  <label for="content" class="form-label">Inhalt des Beitrags</label>  <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" ><span class="badge bg-info">Basic Markdown wird unterstützt</span></a>
+  <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein." name="content"></textarea>
 </div>
 <div class="input-group mb-3">
 <input type="file" class="form-control" name="coverName" id="fileToUpload">

@@ -96,7 +96,25 @@ if (isset($_POST["post"])) {
   $newContent = $_POST['content'];
   $newAuthor = $_SESSION['userid'];
 
+  $newContent = nl2br($newContent);
+  $newContent = stripslashes($newContent);
+
+
   pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
+
+}
+
+// Beiträge bearbeiten
+$updateSuccess = False;
+
+
+if (isset($_POST["update"])) {
+
+  $newTitle = $_POST['title'];
+  $newContent = $_POST['content'];
+  $newAuthor = $_SESSION['userid'];
+
+  pg_query($dbConn, "UPDATE public.posts SET title='$newTitle' content='$newContent' author='$newAuthor'");
 
 }
 
