@@ -1,4 +1,8 @@
-# Wiki
+![socialLogo](https://user-images.githubusercontent.com/118884361/204816082-fa6df68e-4417-45a4-b7b7-f44e6eb5f15e.png)
+
+
+
+# myWiki
 
 ## Erwartete Prüfungsleistung
 ---
@@ -25,3 +29,7 @@ In dem Includes-Ordner finden jene Dateien, die in PHP via `include()` in divers
 ### /img/
 ---
 Dieser Ordner dient der Sammlung der Titelbilder der verschiedenen Beiträge.
+
+## Support
+---
+Falls du Hilfe brauchst oder ein Problem gefunden hast, bitte öffne einen [`Issue`](https://github.com/kev9euf3rois/Wiki/issues)
