@@ -24,7 +24,7 @@ include('./includes/connect.php');
   <div class="container">
 
     <div class="jumbotron">
-      <h1 class="display-4">myWiki</h1>
+      <h1 class="display-4"><span class="text-warning">my</span>Wiki</h1>
       <p class="lead">Willkommen auf der myWiki-Website. Hier kannst du dich mit deinen Kollegen über verschiedenste
         Themen austauschen. </p>
       <hr class="my-4">
@@ -49,7 +49,7 @@ include('./includes/connect.php');
 
       ?>
       <div class="col-sm-6" style="width: 16rem;">
-        <div class="card mb-4 text-white bg-dark">
+        <div class="card mb-4 text-black bg-light border border-dark">
           <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail" style="height: 14rem; object-fit: cover;" alt="/img/<?php echo $cover; ?>">
           <div class="card-body">
             <h5 class="card-title">
@@ -58,7 +58,7 @@ include('./includes/connect.php');
             <p class="card-text">Verfasst von:
               <?php echo $cardAuthor['username']; ?>
             </p>
-            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-light">Zum Beitrag</a>
+            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-dark">Zum Beitrag</a>
           </div>
         </div>
       </div>

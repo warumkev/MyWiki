@@ -27,6 +27,32 @@
   </div>
 </div>
 
+  <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="./assets/brand/wikiLogo.svg" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold"><span class="text-warning">my</span>Wiki</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Bei <span class="text-warning">my</span>Wiki handelt es sich um unser Prüfungsprojekt. Nutzer*innen sollen die Möglichkeit haben, beliebige Wiki-Seiten zu eröffnen und hierauf Informationen und Bilder einstellen zu können. Die Software soll im Intranet zu einem besseren Informationsaustausch beitragen.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="https://github.com/kev9euf3rois/Wiki" target="_blank"><button type="button" class="btn btn-outline-secondary btn-lg px-4">GitHub Repo</button></a>
+      </div>
+    </div>
+  </div>
+
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">IU International University of Applied Science</h1>
+        <p class="lead">Die IU Internationale Hochschule (bis 2021 IUBH Internationale Hochschule, bis 2017 Internationale Hochschule Bad Honnef / Bonn) ist eine staatlich anerkannte private Fachhochschule mit Sitz in Erfurt und 28 Standorten in Deutschland.
+        Sie bietet englischsprachige Präsenzstudiengänge, deutschsprachige duale Studienprogramme sowie Fernstudienangebote und Kombimodelle auf Deutsch und Englisch an. Mit über 100.000 Studierenden ist die IU Internationale Hochschule seit 2021 die größte Hochschule in Deutschland.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <a href="https://iu.de/" target="_blank"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Zur Website</button></a>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="./assets/brand/iulogo.jpg" alt="" width="350" >
+      </div>
+    </div>
+  </div>
 
 <?php include('./components/footer.php'); ?>
 

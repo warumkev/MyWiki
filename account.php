@@ -32,17 +32,19 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
 
     <div class="container">
 
+    
         <div class="jumbotron">
             <h1 class="display-4">Accountdaten</h1>
             <p class="lead">Hier findest du deine gespeicherten Accountdaten bei myWiki.</p>
             <hr class="my-4">
         </div>
+        
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-bg-dark rounded-3">
                     <h2>Klicke auf den Knopf, um dich von myWiki abzumelden.</h2>
                     <p></p>
-                    <a href="logout.php"><button class="btn btn-outline-light" type="button">Abmelden</button></a>
+                    <a href="logout.php"><button class="btn btn-outline-danger" type="button">Abmelden</button></a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -94,7 +96,7 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>Passwort zurücksetzen</strong>
+                        <strong><a href=""v>Passwort zurücksetzen</a></strong>
                     </div>
                 </div>
             </div>

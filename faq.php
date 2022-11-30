@@ -30,16 +30,16 @@ include('./includes/connect.php');
     </div>
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
+        <div class="h-100 p-5 bg-light rounded-3">
           <h2>Du hast eine Frage?</h2>
           <p>Wenn es ungeklärte Fragen deienrseits gibt, zögere nicht uns zu kontaktieren. Schreib uns eine Email mit
             deinem Anliegen und wir kommen so schnell wie möglich darauf zurück.</p>
-          <a href="mailto:kevin.tamme@iu-study.org"><button class="btn btn-outline-light" type="button">Jetzt
+          <a href="mailto:kevin.tamme@iu-study.org"><button class="btn btn-outline-dark" type="button">Jetzt
               kontaktieren</button></a>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
+        <div class="h-100 p-5 text-bg-dark border rounded-3">
           <h2>Information</h2>
           <p>Wir arbeiten stets daran, die Benutzeroberfläche so einfach und verständlich wie möglich zu halten. Dennoch
             kommt es immer wieder zu Fragen. Die wichtigsten Antworten findest du unten aufgelistet in unserem FAQ.</p>
@@ -55,11 +55,11 @@ include('./includes/connect.php');
             Warum finde ich meinen Beitrag nicht?
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
             Versuche sicher zu stellen, dass du den richtigen Suchbegriff verwendet hast und der Beitrag noch existiert.
-            Sollte es immer noch nicht funktionieren kontaktiere bitte unseren <strong>Support</strong>
+            Sollte es immer noch nicht funktionieren kontaktiere bitte unseren <a href="mailto:kevin.tamme@iu-study.org"><strong>Support</strong></a>
           </div>
         </div>
       </div>
@@ -67,13 +67,13 @@ include('./includes/connect.php');
         <h2 class="accordion-header" id="headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Frage #2
+            Wie kann ich Beiträge erstellen?
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <strong>Das</strong> ist die Antwort der Frage.
+            Um Beiträge bei myWiki zu erstellen,, musst du dich zunächst anmelden bzw. registrieren. Anschließend findest du in der Navigationsleiste den Abschnitt <strong>"Beitrag erstellen"</strong>.
           </div>
         </div>
       </div>
@@ -81,13 +81,13 @@ include('./includes/connect.php');
         <h2 class="accordion-header" id="headingThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Frage #3
+            Wo kann ich meinen Account löschen?
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <strong>Das</strong> ist die Antwort der Frage.
+            Um deinen Account zu löschen, bitte klicke <a href=""><strong>hier</strong></a>.  <span class="badge bg-danger">Vorsicht</span>
           </div>
         </div>
       </div>
