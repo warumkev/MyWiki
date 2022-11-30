@@ -10,6 +10,14 @@
 
 Programmieren sie mittels PHP eine benutzerfreundliche Web-Anwendung zurorganisation eines Wiki. Demonstrieren sie den von ihnen entwickelte Softwarequellcode, die Funktionsweise der Webseiten und die Architektur ihrer Anwendung. Begründen sie die von ihnen getroffenen Technologieentscheidungen und erklären sie ihr Vorgehen zu Umsetzung.
 
+## Features
+---
+- Voll funktionsfähiges Nutzersystem
+- Registrierung, Anmeldung, und Löschen von Nutzeraccounts
+- Beiträge erstellen, bearbeiten, suchen und lesen.
+- Design der Beiträge mit Markdown
+- Zufälligen beitrag öffnen
+
 ### Datenbankexport
 ---
 Der aktuellste Stand der Datenbank findet sich in der `databaseDump.sql`.
