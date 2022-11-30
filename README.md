@@ -4,6 +4,10 @@
 
 # myWiki
 
+## Über uns
+---
+Bei myWiki handelt es sich um unser Prüfungsprojekt. Nutzer*innen sollen die Möglichkeit haben, beliebige Wiki-Seiten zu eröffnen und hierauf Informationen und Bilder einstellen zu können. Die Software soll im Intranet zu einem besseren Informationsaustausch beitragen.
+
 ## Erwartete Prüfungsleistung
 ---
 >“Nutzer*innen sollen die Möglichkeit haben, beliebige Wiki-Seiten zu eröffnen und hierauf Informationen und Bilder einstellen zu können. Die Software soll im Intranet zu einem besseren Informationsaustausch beitragen.”
