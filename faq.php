@@ -87,7 +87,7 @@ include('./includes/connect.php');
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Um deinen Account zu löschen, bitte klicke <a href=""><strong>hier</strong></a>.  <span class="badge bg-danger">Vorsicht</span>
+            Um deinen Account zu löschen, bitte klicke <a href="delete.php"><strong>hier</strong></a>.  <span class="badge bg-danger">Du musst angemeldet sein!</span>
           </div>
         </div>
       </div>

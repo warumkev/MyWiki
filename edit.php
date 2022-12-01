@@ -63,7 +63,7 @@
 </div>
 <div class="mb-3">
   <label for="content" class="form-label">Inhalt des Beitrags</label>  <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" ><span class="badge bg-info">Basic Markdown wird unterstützt</span></a>
-  <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein." name="content"><?php $cont = $row['content']; $inhalt = str_replace("<br />", " ", $cont); echo $inhalt; ?></textarea>
+  <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein." name="content"><?php $cont = $row['content']; $inhalt = str_replace(" <br />", "", $cont); echo $inhalt; ?></textarea>
 </div>
 <!-- <div class="input-group mb-3"> -->
 <!-- <input type="file" class="form-control" name="coverName" id="fileToUpload"> -->

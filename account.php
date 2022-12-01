@@ -32,13 +32,13 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
 
     <div class="container">
 
-    
+
         <div class="jumbotron">
             <h1 class="display-4">Accountdaten</h1>
             <p class="lead">Hier findest du deine gespeicherten Accountdaten bei myWiki.</p>
             <hr class="my-4">
         </div>
-        
+
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-bg-dark rounded-3">
@@ -68,7 +68,9 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Deine Email-Adresse lautet <strong><?php echo $accountInfo['email']?></strong>
+                        Deine Email-Adresse lautet <strong>
+                            <?php echo $accountInfo['email'] ?>
+                        </strong>
                     </div>
                 </div>
             </div>
@@ -82,7 +84,9 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Dein Nutzername lautet <strong><?php echo $accountInfo['username']?></strong>
+                        Dein Nutzername lautet <strong>
+                            <?php echo $accountInfo['username'] ?>
+                        </strong>
                     </div>
                 </div>
             </div>
@@ -96,7 +100,14 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong><a href=""v>Passwort zurücksetzen</a></strong>
+                        <strong><a href="" v>Passwort zurücksetzen</a></strong>
+                    </div>
+                </div>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Um deinen Account zu löschen, bitte klicke <a href="delete.php"><strong>hier</strong></a>. <span
+                            class="badge bg-danger">Du musst angemeldet sein!</span>
                     </div>
                 </div>
             </div>
