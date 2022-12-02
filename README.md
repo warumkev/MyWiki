@@ -22,25 +22,21 @@ Programmieren sie mittels PHP eine benutzerfreundliche Web-Anwendung zurorganisa
 - Design der Beiträge mit Markdown
 - Zufälligen beitrag öffnen
 
-### Datenbankexport
----
-Der aktuellste Stand der Datenbank findet sich in der `databaseDump.sql`.
+## Getting Started
 
-### /assets/
----
-In dem Assets-Ordner finden sich Bootstrap-Assets, welche zum Design der aktuellen Oberfläche genutzt werden. Diese sind öffentlich zugänglich unter https://getbootstrap.com/.
+### Anforderungen
+Wir nutzen folgende Software zur Entwicklung:
+- PostgreSQL
+- pgAdmin 
+- Apache24
+- PHP8
 
-### /components/
----
-Der einfachheithalber wurden Navbar, sowie Footer in diesen separaten Unterordner verschoben. Dies vereinfacht die websiteweite Bearbeitung der Komponenten.
+### Datenbank
+1. databaseDump.sql in pgAdmin importieren
 
-### /includes/
----
-In dem Includes-Ordner finden jene Dateien, die in PHP via `include()` in diverse Dateien eingebunden werden. Zwecks vereinfachung wurden diese Code-Snippets in einer separaten Datei gespeichert. Hier finden sich zum Beispiel die Suchfunktion oder auch das Nutzersystem.
-
-### /img/
----
-Dieser Ordner dient der Sammlung der Titelbilder der verschiedenen Beiträge.
+### Projekt
+1. Zugangsdaten in /includes/credentials.php eintragen
+Projektstruktur: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 
 ## Support
 ---
