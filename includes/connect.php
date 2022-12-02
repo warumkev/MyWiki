@@ -1,12 +1,8 @@
 <?php
+include 'credentials.php';
 
 // Datenbankverbindung aufbauen
 
-$host = "localhost";
-$port = "5432";
-$db = "myWiki";
-$user = "postgres";
-$pw = "IchbinKevin03.";
 $connStr = "host=$host port=$port dbname=$db user=$user password=$pw";
 
 $dbConn = pg_connect($connStr);
