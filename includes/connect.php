@@ -56,7 +56,12 @@ $max = pg_query($dbConn, "SELECT * FROM public.posts WHERE id = (SELECT MAX(id) 
 
 $rowMax = pg_fetch_assoc($max);
 
-$randomPost = rand($rowMin['id'], $rowMax['id']);
+$checkRows = pg_num_rows($max);
+
+if ($checkRows < 1) {
+} else {
+  $randomPost = rand($rowMin['id'], $rowMax['id']);
+}
 
 // Beiträge hochladen
 
