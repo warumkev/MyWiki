@@ -41,11 +41,11 @@ if (isset($_SESSION['loggedin'])) {
 
     <?php } else if ($usernameMatch == True) { ?>
 
-<div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading">Dieser Nutzername ist bereits vergeben!</h4>
-</div>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">Dieser Nutzername ist bereits vergeben!</h4>
+    </div>
 
-<?php } else if ($success == True) {
+    <?php } else if ($success == True) {
 
       sleep(3);
       header("Location: home.php");

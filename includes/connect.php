@@ -40,7 +40,7 @@ if (isset($_GET['authorid'])) {
 
   $results = pg_query($dbConn, "SELECT id, title, cover, views, author FROM public.posts WHERE author = '$authorId' ORDER BY id");
 
-} 
+}
 
 // Zufälligen Beitrag öffnen
 
@@ -163,8 +163,9 @@ if (isset($_POST["register"])) {
 
     $passwordMatch = False;
 
-  } if($usernameExist > 0) {
-    
+  }
+  if ($usernameExist > 0) {
+
     $usernameMatch = True;
 
   } else {

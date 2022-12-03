@@ -1,10 +1,10 @@
 <?php
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
 
     $keyWord = $_GET['search'];
 
-    header("Location: ./home.php?keyword=".$keyWord);
+    header("Location: ./home.php?keyword=" . $keyWord);
 
 } else {
 
@@ -12,7 +12,7 @@ if(isset($_GET['search'])) {
 
 }
 
-if(isset($_GET['keyword'])) {
+if (isset($_GET['keyword'])) {
 
     $query = $_GET['keyword'];
 
@@ -20,7 +20,7 @@ if(isset($_GET['keyword'])) {
 
 } else {
 
-$results = pg_query($dbConn, "SELECT id, title, cover FROM public.posts");
+    $results = pg_query($dbConn, "SELECT id, title, cover FROM public.posts");
 
 }
 

@@ -52,8 +52,8 @@ if (isset($_SESSION['loggedin'])) {
                         </div><br>
                         <div class="col-9">
                             <label for="password" class="form-label">Passwort</label>
-                            <input type="password" class="form-control" id="password" placeholder="Gib dein Passwort ein"
-                                name="password">
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Gib dein Passwort ein" name="password">
                         </div><br>
                         <div class="col-2">
                             <input type="submit" class="btn btn-primary mb-3" name="login">

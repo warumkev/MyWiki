@@ -5,29 +5,33 @@ include('./includes/connect.php');
 
 
 ?>
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyWiki | Tests</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
- <body>
-    
- <?php include('./components/navbar.php'); ?>
 
- <div class="container">
+<body>
 
-<?php echo $rowMin['id']; echo $rowMax['id']; echo $randomPost;?>
+  <?php include('./components/navbar.php'); ?>
+
+  <div class="container">
+
+    <?php echo $rowMin['id'];
+echo $rowMax['id'];
+echo $randomPost; ?>
 
 
-</div>
+  </div>
 
 
- </body>
+</body>
 
- <?php include('./components/footer.php'); ?>
+<?php include('./components/footer.php'); ?>
 
- </html>
+</html>

@@ -59,7 +59,8 @@ include('./includes/connect.php');
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
             Versuche sicher zu stellen, dass du den richtigen Suchbegriff verwendet hast und der Beitrag noch existiert.
-            Sollte es immer noch nicht funktionieren kontaktiere bitte unseren <a href="mailto:kevin.tamme@iu-study.org"><strong>Support</strong></a>
+            Sollte es immer noch nicht funktionieren kontaktiere bitte unseren <a
+              href="mailto:kevin.tamme@iu-study.org"><strong>Support</strong></a>
           </div>
         </div>
       </div>
@@ -73,7 +74,8 @@ include('./includes/connect.php');
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Um Beiträge bei myWiki zu erstellen,, musst du dich zunächst anmelden bzw. registrieren. Anschließend findest du in der Navigationsleiste den Abschnitt <strong>"Beitrag erstellen"</strong>.
+            Um Beiträge bei myWiki zu erstellen,, musst du dich zunächst anmelden bzw. registrieren. Anschließend
+            findest du in der Navigationsleiste den Abschnitt <strong>"Beitrag erstellen"</strong>.
           </div>
         </div>
       </div>
@@ -87,7 +89,8 @@ include('./includes/connect.php');
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Um deinen Account zu löschen, bitte klicke <a href="delete.php"><strong>hier</strong></a>.  <span class="badge bg-danger">Du musst angemeldet sein!</span>
+            Um deinen Account zu löschen, bitte klicke <a href="delete.php"><strong>hier</strong></a>. <span
+              class="badge bg-danger">Du musst angemeldet sein!</span>
           </div>
         </div>
       </div>
