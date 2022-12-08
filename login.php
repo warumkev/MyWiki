@@ -27,16 +27,10 @@ if (isset($_SESSION['loggedin'])) {
 
     <div class="container">
 
-        <?php if ($registerSuccess == False) { ?>
+        <?php if ($loginCheck == False) { ?>
 
         <div class="alert alert-danger" role="alert">
-            <h4 class="alert-heading">Bitte fülle alle Felder aus!</h4>
-        </div>
-
-        <?php } else if ($passwordMatch == False) { ?>
-
-        <div class="alert alert-danger" role="alert">
-            <h4 class="alert-heading">Die Passwörter stimmen nicht überein</h4>
+            <h4 class="alert-heading">Bitte überprüfe deine Eingabe!</h4>
         </div>
 
         <?php } ?>

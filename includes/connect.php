@@ -184,6 +184,8 @@ if (isset($_POST["register"])) {
 
 // Nutzeranmeldung
 
+$loginCheck = True;
+
 if (isset($_POST["login"])) {
 
   $username = $_POST['username'];
@@ -205,7 +207,8 @@ if (isset($_POST["login"])) {
 
   } else {
 
-    echo "Invalid Details";
+    $loginCheck = False;
+    
   }
 
 }
