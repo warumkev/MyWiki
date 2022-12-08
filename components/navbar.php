@@ -21,7 +21,7 @@
           <a class="nav-link active" href="create.php">Beitrag erstellen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="account.php">Mein Account</a>
+          <a class="nav-link active" href="account.php?authorid=<?php echo $_SESSION['userid']; ?>">Mein Account</a>
         </li>
         <?php } ?>
         <li class="nav-item">

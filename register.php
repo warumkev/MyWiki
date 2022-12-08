@@ -26,7 +26,11 @@ if (isset($_SESSION['loggedin'])) {
   <br>
 
   <div class="container">
-
+  <div class="jumbotron">
+      <h1 class="display-4">Registrierung</h1>
+      <p class="lead">Hey, hier kannst du dich registrieren, um deine eigenen Beiträge hochzuladen!</p>
+      <hr class="my-4">
+    </div>
     <?php if ($registerSuccess == False) { ?>
 
     <div class="alert alert-danger" role="alert">

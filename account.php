@@ -111,8 +111,40 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br>
+        <div class="jumbotron">
+      <hr class="my-4">
+      <p class="display-6">Alle deine Beiträge auf einen Blick</p>
+      <hr class="my-4">
+    </div><br>
+      <?php while ($row = pg_fetch_assoc($results)) {
 
+        $titel = $row['title'];
+        $id = $row['id'];
+        $cover = $row['cover'];
+        $authorid = $row['author'];
+
+        $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
+
+        $cardAuthor = pg_fetch_assoc($getAuthor);
+
+      ?>
+      <div class="col-sm-6" style="width: 16rem;">
+        <div class="card mb-4 text-black bg-light border border-dark">
+          <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail"
+            style="height: 14rem; object-fit: cover;" alt="/img/<?php echo $cover; ?>">
+          <div class="card-body">
+            <h5 class="card-title">
+              <?php echo $titel; ?>
+            </h5>
+            <p class="card-text">Verfasst von:
+              <?php echo $cardAuthor['username']; ?>
+            </p>
+            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-dark">Zum Beitrag</a>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
         <?php include('./components/footer.php'); ?>
 
         <div>
