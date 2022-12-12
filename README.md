@@ -36,7 +36,9 @@ Wir nutzen folgende Software zur Entwicklung:
 
 ### Projekt
 1. Zugangsdaten in /includes/credentials.php eintragen
-Projektstruktur: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
+
+### Projektstruktur
+[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 
 ## Support
 ---
