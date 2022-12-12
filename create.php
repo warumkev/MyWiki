@@ -27,7 +27,16 @@ if (!isset($_SESSION['loggedin'])) {
   <br>
 
   <div class="container">
-
+  <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
+                    <h1 class="fw-light">Beitrag erstellen</h1>
+                    <p class="lead text-muted">Hier kannst du neue Beiträge auf myWiki veröffentlichen.</p>
+                </div>
+            </div>
+        </section>
+    <div class="row">
     <?php if ($uploadSuccess == True) { ?>
 
     <div class="alert alert-success" role="alert">
@@ -39,8 +48,14 @@ if (!isset($_SESSION['loggedin'])) {
 
     </div>
 
-    <?php } else {
-} ?>
+    <?php } else if (!empty($errors)) { {
+        foreach ($errors as $error) { ?>
+          <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Fehler beim Hochladen</h4>
+          <p><?php echo $error; ?></p>    
+        </div>    <?php    }
+      }
+  } ?>
     <form class="row g-3" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Titel des Beitrags</label>
@@ -48,7 +63,7 @@ if (!isset($_SESSION['loggedin'])) {
       </div>
       <div class="mb-3">
         <label for="content" class="form-label">Inhalt des Beitrags</label> <a
-          href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-info">Basic Markdown
+          href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-primary">Basic Markdown
             wird unterstützt</span></a>
         <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein."
           name="content"></textarea>

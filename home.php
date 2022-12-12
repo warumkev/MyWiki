@@ -23,7 +23,12 @@ include('./includes/connect.php');
   <br>
 
   <div class="container">
-
+  <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px">
+            </div>
+        </section>
     <div class="jumbotron">
       <h1 class="display-4"><span class="text-warning">my</span>Wiki</h1>
       <p class="lead">Willkommen auf der myWiki-Website. Hier kannst du dich mit deinen Kollegen über verschiedenste

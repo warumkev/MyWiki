@@ -23,11 +23,15 @@ include('./includes/connect.php');
 
   <div class="container">
 
-    <div class="jumbotron">
-      <h1 class="display-4">FAQ</h1>
-      <p class="lead">Hier findest du häufig gestellte Fragen zu myWiki.</p>
-      <hr class="my-4">
-    </div>
+  <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
+                    <h1 class="fw-light">FAQ</h1>
+                    <p class="lead text-muted">Hier findest du häufig gestellte Fragen zu myWiki.</p>
+                </div>
+            </div>
+        </section>
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light rounded-3">

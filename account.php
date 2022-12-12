@@ -32,12 +32,15 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
 
     <div class="container">
 
-
-        <div class="jumbotron">
-            <h1 class="display-4">Accountdaten</h1>
-            <p class="lead">Hier findest du deine gespeicherten Accountdaten bei myWiki.</p>
-            <hr class="my-4">
-        </div>
+    <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
+                    <h1 class="fw-light">Accountdaten</h1>
+                    <p class="lead text-muted">Hier findest du deine gespeicherten Accountdaten bei myWiki.</p>
+                </div>
+            </div>
+        </section>
 
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
@@ -117,6 +120,7 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
       <p class="display-6">Alle deine Beiträge auf einen Blick</p>
       <hr class="my-4">
     </div><br>
+      <div class="row">
       <?php while ($row = pg_fetch_assoc($results)) {
 
         $titel = $row['title'];
@@ -145,6 +149,7 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
         </div>
       </div>
       <?php } ?>
+      </div>
         <?php include('./components/footer.php'); ?>
 
         <div>

@@ -84,11 +84,11 @@ if (isset($_POST["post"])) {
   $uploadPath = $currentDirectory . $uploadDirectory . basename($fileName);
 
   if (!in_array($fileExtension, $fileExtensionsAllowed)) {
-    $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+    $errors[] = "Bitte lade eine JPEG oder PNG Datei hoch!";
   }
 
-  if ($fileSize > 4000000) {
-    $errors[] = "File exceeds maximum size (4MB)";
+  if ($fileSize > 1900000) {
+    $errors[] = "File exceeds maximum size (8MB)";
   }
 
   if (empty($errors)) {
@@ -96,15 +96,8 @@ if (isset($_POST["post"])) {
 
     if ($didUpload) {
       $uploadSuccess = True;
-    } else {
-      echo "An error occurred. Please contact the administrator.";
-    }
-  } else {
-    foreach ($errors as $error) {
-      echo $error . "These are the errors" . "\n";
-    }
-  }
 
+      
   $newTitle = $_POST['title'];
   $newContent = $_POST['content'];
   $newAuthor = $_SESSION['userid'];
@@ -114,6 +107,10 @@ if (isset($_POST["post"])) {
 
 
   pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
+
+
+    } 
+  }
 
 }
 
