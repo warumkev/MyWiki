@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
     <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <img src="./img/<?php echo $row['cover']; ?>" class="rounded mx-auto d-block img-thumbnail" style="height: 14rem; object-fit: cover;" alt="./img/<?php echo $row['cover']; ?>"><br>
+                    <img src="./img/<?php echo $row['cover']; ?>" class="rounded mx-auto d-block img-thumbnail" style="height: 13rem; object-fit: cover;" alt="./img/<?php echo $row['cover']; ?>"><br>
                     <h1 class="fw-light"><?php echo $row['title']; ?>  <a href="edit.php?p=<?php echo $row['id']; ?>"><svg
                   xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
                   viewBox="0 0 16 16">
