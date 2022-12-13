@@ -97,19 +97,19 @@ if (isset($_POST["post"])) {
     if ($didUpload) {
       $uploadSuccess = True;
 
-      
-  $newTitle = $_POST['title'];
-  $newContent = $_POST['content'];
-  $newAuthor = $_SESSION['userid'];
 
-  $newContent = nl2br($newContent);
-  $newContent = stripslashes($newContent);
+      $newTitle = $_POST['title'];
+      $newContent = $_POST['content'];
+      $newAuthor = $_SESSION['userid'];
 
-
-  pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
+      $newContent = nl2br($newContent);
+      $newContent = stripslashes($newContent);
 
 
-    } 
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
+
+
+    }
   }
 
 }
@@ -202,15 +202,16 @@ if (isset($_POST["login"])) {
     $_SESSION['loggedin'] = True;
     $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE username LIKE '$username'");
     $isAdminCheck = pg_fetch_assoc($isAdminResult);
-    if($isAdminCheck['isAdminAccount'] == 't') {
-    $_SESSION['isAdmin'] = True; 
-  } else{}
+    if ($isAdminCheck['isAdminAccount'] == 't') {
+      $_SESSION['isAdmin'] = True;
+    } else {
+    }
     echo "Login Successfully";
 
   } else {
 
     $loginCheck = False;
-    
+
   }
 
 }

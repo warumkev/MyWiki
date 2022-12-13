@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="home.php"><img src="./assets/brand/wikiLogo.svg" width="30" height="30"
         class="d-inline-block align-top" alt=""> <span class="text-warning">my</span>Wiki</a>
-        
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,8 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2 btn btn-outline-warning" type="search" placeholder="Search" name="search" aria-label="Search">
+        <input class="form-control me-2 btn btn-outline-warning" type="search" placeholder="Search" name="search"
+          aria-label="Search">
         <input class="btn btn-outline-dark" type="submit">
       </form>
     </div>
