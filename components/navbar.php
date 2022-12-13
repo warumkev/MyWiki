@@ -23,12 +23,17 @@
         <li class="nav-item">
           <a class="nav-link active" href="account.php?authorid=<?php echo $_SESSION['userid']; ?>">Mein Account</a>
         </li>
+        <?php if (isset($_SESSION['isAdmin'])) { ?>
+        <li class="nav-item">
+          <a class="nav-link active" href="settings.php">Einstellungen</a>
+        </li>
+        <?php } ?>
         <?php } ?>
         <li class="nav-item">
           <a class="nav-link active" href="faq.php">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="post.php?id=<?php echo $randomPost;?>">Entdecken</a>
+          <a class="nav-link active" href="post.php?id=<?php echo $randomPost; ?>">Entdecken</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

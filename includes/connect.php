@@ -200,6 +200,11 @@ if (isset($_POST["login"])) {
 
     $_SESSION['userid'] = $id['id'];
     $_SESSION['loggedin'] = True;
+    $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE username LIKE '$username'");
+    $isAdminCheck = pg_fetch_assoc($isAdminResult);
+    if($isAdminCheck['isAdminAccount'] == 't') {
+    $_SESSION['isAdmin'] = True; 
+  } else{}
     echo "Login Successfully";
 
   } else {
