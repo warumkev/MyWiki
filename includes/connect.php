@@ -216,4 +216,18 @@ if (isset($_POST["login"])) {
 
 }
 
+// Checke aktiv, ob der Nutzer ein Admin ist
+
+if (isset($_SESSION['loggedin'])) {
+
+  $tempID = $_SESSION['userid'];
+  $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE id = $tempID");
+  $isAdminCheck = pg_fetch_assoc($isAdminResult);
+  if ($isAdminCheck['isAdminAccount'] == 't') {
+    $_SESSION['isAdmin'] = True;
+  } else {
+  }
+
+}
+
 ?>
