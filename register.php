@@ -26,15 +26,15 @@ if (isset($_SESSION['loggedin'])) {
   <br>
 
   <div class="container">
-  <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
-                    <h1 class="fw-light">Registrierung</h1>
-                    <p class="lead text-muted">Hier kannst du dich registrieren, um deine eigenen Beiträge hochzuladen!</p>
-                </div>
-            </div>
-        </section>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
+          <h1 class="fw-light">Registrierung</h1>
+          <p class="lead text-muted">Hier kannst du dich registrieren, um deine eigenen Beiträge hochzuladen!</p>
+        </div>
+      </div>
+    </section>
     <?php if ($registerSuccess == False) { ?>
 
     <div class="alert alert-danger" role="alert">

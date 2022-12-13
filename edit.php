@@ -60,7 +60,7 @@ if (isset($_GET['p'])) {
     </div>
 
     <?php } else {
-} ?>
+    } ?>
     <form class="row g-3" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Titel des Beitrags</label>
@@ -73,8 +73,8 @@ if (isset($_GET['p'])) {
             wird unterstützt</span></a>
         <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein."
           name="content"><?php $cont = $row['content'];
-  $inhalt = str_replace("<br />", "", $cont);
-  echo $inhalt; ?></textarea>
+          $inhalt = str_replace("<br />", "", $cont);
+          echo $inhalt; ?></textarea>
       </div>
       <!-- <div class="input-group mb-3"> -->
       <!-- <input type="file" class="form-control" name="coverName" id="fileToUpload"> -->
