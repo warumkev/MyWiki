@@ -16,9 +16,14 @@ if (isset($_GET["table"])) {
 
     if (strcmp($table, "users") == 0) {
 
+      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, accounttype) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
+
       header('Location: logout.php');
 
     } else {
+
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '## Titel 1 </br >\nBeispielinhalt', DEFAULT, DEFAULT, 1);");
+
       header('Location: settings.php');
     }
   }
@@ -77,8 +82,8 @@ if (isset($_GET["table"])) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Hiermit werden alle Daten und Einträge in der Tabelle "public.users" gelöscht. Bist du sicher, dass du dies
-            machen möchtest?
+            Hiermit werden alle Daten und Einträge, mit Ausnahme des Adminaccounts, in der Tabelle "public.users" gelöscht. Bist du sicher, dass du dies
+            machen möchtest?<br><br><span class="text-danger">Achtung: Du wirst abgemeldet!</span>
           </div>
           <div class="modal-footer">
             <form method="post" action="settings.php?table=users">
@@ -111,7 +116,7 @@ if (isset($_GET["table"])) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Hiermit werden alle Daten und Einträge in der Tabelle "public.posts" gelöscht. Bist du sicher, dass du dies
+            Hiermit werden alle Daten und Einträge in der Tabelle "public.posts" gelöscht und es wird ein Standartbeitrag erstellt. Bist du sicher, dass du dies
             machen möchtest?
           </div>
           <div class="modal-footer">

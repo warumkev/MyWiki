@@ -223,7 +223,7 @@ if (isset($_SESSION['loggedin'])) {
   $tempID = $_SESSION['userid'];
   $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE id = $tempID");
   $isAdminCheck = pg_fetch_assoc($isAdminResult);
-  if ($isAdminCheck['isAdminAccount'] == 't') {
+  if ($isAdminCheck['accounttype'] == 't') {
     $_SESSION['isAdmin'] = True;
   } else {
   }
