@@ -17,6 +17,7 @@ if (isset($_GET["table"])) {
     if (strcmp($table, "users") == 0) {
 
       pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, accounttype) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
+      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, accounttype) VALUES (DEFAULT, 'User', '81dc9bdb52d04dc20036dbd8313ed055', 'user@mywiki.local', false);");
 
       header('Location: logout.php');
 
