@@ -23,11 +23,6 @@ include('./includes/connect.php');
 
   <div class="container">
 
-    <?php echo $rowMin['id'];
-    echo $rowMax['id'];
-    echo $randomPost; ?>
-
-
   </div>
 
 
