@@ -13,7 +13,7 @@ if (!isset($_SESSION['loggedin'])) {
 
   session_destroy();
 
-  sleep(1);
+  sleep(2);
 
   header("Location: home.php");
 
