@@ -22,7 +22,7 @@ if (isset($_GET["table"])) {
       header('Location: logout.php');
 
     } else {
-
+ 
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '# Titel 1<br />\n## Titel 2<br />\n### Titel 3<br />\n`Code-Ausschnitt`<br />\n', DEFAULT, DEFAULT, 1);");
 
       header('Location: settings.php');
