@@ -23,7 +23,7 @@ if (isset($_GET["table"])) {
 
     } else {
 
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '## Titel 1 </br >\nBeispielinhalt', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '# Titel 1<br />\n## Titel 2<br />\n### Titel 3<br />\n`Code-Ausschnitt`<br />\n', DEFAULT, DEFAULT, 1);");
 
       header('Location: settings.php');
     }
@@ -40,7 +40,8 @@ if (isset($_GET["table"])) {
   <title>MyWiki | Startseite</title>
   <link rel="icon" type="image/x-icon" href="assets/brand/wikiLogo.svg">
   <link rel="icon" type="image/x-icon" href="assets/brand/wikiLogo.svg">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
@@ -76,7 +77,8 @@ if (isset($_GET["table"])) {
       </span>
     </button>
 
-    <div class="modal fade" id="trunUsers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="trunUsers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -84,7 +86,8 @@ if (isset($_GET["table"])) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Hiermit werden alle Daten und Einträge, mit Ausnahme des Adminaccounts, in der Tabelle "public.users" gelöscht. Bist du sicher, dass du dies
+            Hiermit werden alle Daten und Einträge, mit Ausnahme des Adminaccounts, in der Tabelle "public.users"
+            gelöscht. Bist du sicher, dass du dies
             machen möchtest?<br><br><span class="text-danger">Achtung: Du wirst abgemeldet!</span>
           </div>
           <div class="modal-footer">
@@ -110,7 +113,8 @@ if (isset($_GET["table"])) {
       </span>
     </button>
 
-    <div class="modal fade" id="trunPosts" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="trunPosts" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -118,7 +122,8 @@ if (isset($_GET["table"])) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Hiermit werden alle Daten und Einträge in der Tabelle "public.posts" gelöscht und es wird ein Standartbeitrag erstellt. Bist du sicher, dass du dies
+            Hiermit werden alle Daten und Einträge in der Tabelle "public.posts" gelöscht und es wird ein
+            Standartbeitrag erstellt. Bist du sicher, dass du dies
             machen möchtest?
           </div>
           <div class="modal-footer">
@@ -128,9 +133,15 @@ if (isset($_GET["table"])) {
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
