@@ -44,6 +44,17 @@ Wir nutzen folgende Software zur Entwicklung:
 ### Projekt
 
 1. Zugangsdaten in /includes/credentials.php eintragen
+```php
+<?php
+
+$host = ""; // localhost
+$port = ""; // 5432
+$db = ""; // myWiki
+$user = ""; // postgres
+$pw = "";
+
+?>
+```
 
 ### Projektstruktur
 
