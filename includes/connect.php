@@ -84,11 +84,11 @@ if (isset($_POST["post"])) {
   $uploadPath = $currentDirectory . $uploadDirectory . basename($fileName);
 
   if (!in_array($fileExtension, $fileExtensionsAllowed)) {
-    $errors[] = "Bitte lade eine JPEG oder PNG Datei hoch!";
+    $errors[] = "Please use a JPEG or a PNG file!";
   }
 
   if ($fileSize > 1900000) {
-    $errors[] = "File exceeds maximum size (8MB)";
+    $errors[] = "File exceeds maximum size (1.9MB)";
   }
 
   if (empty($errors)) {
