@@ -10,7 +10,7 @@ if (isset($_GET["table"])) {
 
   $table = $_GET["table"];
 
-  if (strcmp($table, "users") == 0 || strcmp($table, "posts") == 0) {
+  if (strcmp($table, "users") == 0 || strcmp($table, "posts") == 0 || strcmp($table, "messages") == 0) {
 
     pg_query($dbConn, "TRUNCATE public.$table RESTART IDENTITY CASCADE;");
 
@@ -35,8 +35,6 @@ if (isset($_GET["table"])) {
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.10', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
       header('Location: home.php');
     } else if (strcmp($table, "messages") == 0){
-
-      pg_query($dbConn, "TRUNCATE public.$table RESTART IDENTITY CASCADE;");
       header('Location: home.php');
     }
   }
@@ -148,18 +146,18 @@ if (isset($_GET["table"])) {
 
     <?php
 
-    $messagesResult = pg_query($dbConn, "SELECT * FROM public.posts");
+    $messagesResult = pg_query($dbConn, "SELECT * FROM public.messages");
 
     ?>
     <p class="fs-2"><code class="text-dark">public.messages</code></p>
-    <button type="button" class="btn btn-warning position-relative" data-bs-toggle="modal" data-bs-target="#trunPosts">
+    <button type="button" class="btn btn-warning position-relative" data-bs-toggle="modal" data-bs-target="#trunMessages">
       Reset database
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
         <?php echo pg_num_rows($messagesResult); ?>
       </span>
     </button>
 
-    <div class="modal fade" id="trunPosts" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="trunMessages" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
