@@ -55,6 +55,7 @@ include('./includes/connect.php');
 
     </div>
     <br>
+    <?php if (isset($_SESSION['loggedin'])) { ?>
     <div class="container" style="width: 17rem; float: left;">
       <form class="col-sm-18" method="post">
         <div class="input-group mb-3">
@@ -63,6 +64,16 @@ include('./includes/connect.php');
         </div>
       </form>
     </div>
+    <?php } else {?>
+    <div class="container" style="width: 17rem; float: left;">
+      <form class="col-sm-18" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Join this conversation" aria-label="Message" aria-describedby="msgSend" name="msgContent" id="msgContent" disabled>
+          <a href="login.php" class="btn btn-outline-dark" type="submit" name="msgSend" id="msgSend" value="" disabled>Log in</a>
+        </div>
+      </form>
+    </div>
+      <?php } ?>
     <div class="container" style="height: 30rem; width: 17rem; float: left; overflow-y: scroll; clear: both;" id="chatbox">
       <?php while ($msg = pg_fetch_assoc($chatMessages)) {
 
