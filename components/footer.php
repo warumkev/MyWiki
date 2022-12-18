@@ -4,7 +4,7 @@
       <p> <a class="bi me-2" href="home.php"><img src="./assets/brand/wikiLogo.svg" width="30" height="30"
             class="d-inline-block align-top" alt=""></p>
     </a>
-    <p class="text-muted">© 2022</p>
+    <p class="text-muted">© 2022/2023</p>
   </div>
 
   <div class="col mb-3">
