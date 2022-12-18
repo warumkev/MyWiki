@@ -21,7 +21,7 @@ if (isset($_GET["table"])) {
 
       header('Location: logout.php');
 
-    } else {
+    } else if (strcmp($table, "posts") == 0){
 
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.1', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.2', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
@@ -33,6 +33,10 @@ if (isset($_GET["table"])) {
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.8', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.9', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.10', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
+      header('Location: home.php');
+    } else if (strcmp($table, "messages") == 0){
+
+      pg_query($dbConn, "TRUNCATE public.$table RESTART IDENTITY CASCADE;");
       header('Location: home.php');
     }
   }
@@ -137,6 +141,38 @@ if (isset($_GET["table"])) {
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             <a href="settings.php?table=posts" class="btn btn-warning" name="trunPosts" id="trunPosts">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <?php
+
+    $messagesResult = pg_query($dbConn, "SELECT * FROM public.posts");
+
+    ?>
+    <p class="fs-2"><code class="text-dark">public.messages</code></p>
+    <button type="button" class="btn btn-warning position-relative" data-bs-toggle="modal" data-bs-target="#trunPosts">
+      Reset database
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+        <?php echo pg_num_rows($messagesResult); ?>
+      </span>
+    </button>
+
+    <div class="modal fade" id="trunPosts" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Confirm process</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            With this, all data and entries in the table 'public.messages' will be deleted. Are you sure you want to do this?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <a href="settings.php?table=messages" class="btn btn-warning" name="trunMessages" id="trunMessages">Continue</a>
           </div>
         </div>
       </div>
