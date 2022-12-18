@@ -22,9 +22,10 @@ Programmieren sie mittels PHP eine benutzerfreundliche Web-Anwendung zurorganisa
 
 - Voll funktionsfähiges Nutzersystem
 - Registrierung, Anmeldung, und Löschen von Nutzeraccounts
+- Unterteilung von Nutzern in Admin und User
 - Beiträge erstellen, bearbeiten, suchen und lesen.
 - Design der Beiträge mit Markdown
-- Zufälligen beitrag öffnen
+- Zufälligen Beitrag öffnen
 
 ## Getting Started
 
