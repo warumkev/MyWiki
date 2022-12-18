@@ -231,4 +231,12 @@ if (isset($_SESSION['loggedin'])) {
 
 }
 
+if (isset($_SESSION['userid'])) {
+
+  $aid = $_SESSION['userid'];
+
+  $authorResults = pg_query($dbConn, "SELECT * FROM public.posts WHERE author = '$aid' ORDER BY id");
+
+}
+
 ?>

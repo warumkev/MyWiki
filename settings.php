@@ -23,9 +23,16 @@ if (isset($_GET["table"])) {
 
     } else {
 
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Title of the post', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Title of the post', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
-
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.1', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.2', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.3', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.4', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.5', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.6', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.7', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.8', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.9', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.10', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
       header('Location: home.php');
     }
   }
@@ -124,7 +131,7 @@ if (isset($_GET["table"])) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            With this, all data and entries in the table 'public.posts' will be deleted and a standard post will be
+            With this, all data and entries in the table 'public.posts' will be deleted and some default posts will be
             created. Are you sure you want to do this?
           </div>
           <div class="modal-footer">

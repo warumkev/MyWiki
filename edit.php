@@ -48,15 +48,23 @@ if (isset($_GET['p'])) {
   <br>
 
   <div class="container">
-
+  <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
+          <h1 class="fw-light">Edit this post</h1>
+          <p class="lead text-muted">Here you can edit the selected post on myWiki.</p>
+        </div>
+      </div>
+    </section>
     <?php if ($updateSuccess == True) { ?>
 
     <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Erfolgreich geändert!</h4>
-      <p>Deine Änderungen wurden erfolgreich in die Datenbank übernommen und können nun von jedermann eingesehen werden.
-        Hurra!</p>
+      <h4 class="alert-heading">Changed successfully!</h4>
+      <p>Your changes have been successfully added to the database and can now be viewed by anyone.
+        Hurray!</p>
       <hr>
-      <p>Danke für deinen Beitrag!</p>
+      <p>Thanks for your contribution!</p>
 
     </div>
 
@@ -64,15 +72,14 @@ if (isset($_GET['p'])) {
     } ?>
     <form class="row g-3" method="post" enctype="multipart/form-data">
       <div class="mb-3">
-        <label for="title" class="form-label">Titel des Beitrags</label>
-        <input type="text" class="form-control" id="title" placeholder="Gib den Titel des Beitrags ein."
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Please enter the title."
           value="<?php echo $row['title']; ?>" name="title">
       </div>
       <div class="mb-3">
-        <label for="content" class="form-label">Inhalt des Beitrags</label> <a
-          href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-info">Basic Markdown
-            wird unterstützt</span></a>
-        <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein."
+        <label for="content" class="form-label">Content</label> <a
+          href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-warning">We support basic markdown syntax.</span></a>
+        <textarea class="form-control" id="content" rows="3" placeholder="Please enter the content."
           name="content"><?php $cont = $row['content'];
           $inhalt = str_replace("<br />", "", $cont);
           echo $inhalt; ?></textarea>
@@ -81,7 +88,7 @@ if (isset($_GET['p'])) {
       <!-- <input type="file" class="form-control" name="coverName" id="fileToUpload"> -->
       <!-- </div> -->
       <div class="col-auto">
-        <input type="submit" class="btn btn-primary mb-3" name="update">
+        <input type="submit" class="btn btn-primary mb-3" name="update" value="Update post">
       </div>
     </form>
     <div class="d-none">
