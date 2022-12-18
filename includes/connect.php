@@ -232,6 +232,8 @@ if (isset($_SESSION['loggedin'])) {
 
 }
 
+// Zeige Beiträge des Benutzers an
+
 if (isset($_SESSION['userid'])) {
 
   $aid = $_SESSION['userid'];
@@ -240,4 +242,12 @@ if (isset($_SESSION['userid'])) {
 
 }
 
-?>
+// Live Chat System
+
+$chatMessages = pg_query($dbConn, "SELECT * FROM public.messages ORDER BY id");
+
+if (isset($_POST['msgSend'])) {
+  $msgSender = $_SESSION['userid'];
+  $msgContent = $_POST['msgContent'];
+  pg_query($dbConn, "INSERT INTO messages (id, sender, content, sentat) VALUES (DEFAULT, $msgSender, '$msgContent', NOW())");
+}
