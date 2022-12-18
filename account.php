@@ -114,11 +114,11 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
         </div><br>
         <div class="jumbotron">
             <hr class="my-4">
-            <p class="display-6">Here are all your contributions.</p>
+            <p class="display-6">Here are all your contributions:</p>
             <hr class="my-4">
         </div><br>
         <div class="row">
-            <?php while ($row = pg_fetch_assoc($results)) {
+            <?php while ($row = pg_fetch_assoc($authorResults)) {
 
                 $titel = $row['title'];
                 $id = $row['id'];

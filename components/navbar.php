@@ -12,28 +12,28 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="home.php">Homepage</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="post.php?id=<?php echo $randomPost; ?>">Discover</a>
+        </li>
         <?php if (!isset($_SESSION['loggedin'])) { ?>
         <li class="nav-item">
           <a class="nav-link active" href="login.php">Log in</a>
         </li>
         <?php } else { ?>
-        <li class="nav-item">
-          <a class="nav-link active" href="create.php">Create Post</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="account.php?authorid=<?php echo $_SESSION['userid']; ?>">My account</a>
+          <li class="nav-item">
+          <a class="nav-link active" href="account.php">My account</a>
         </li>
         <?php if (isset($_SESSION['isAdmin'])) { ?>
         <li class="nav-item">
           <a class="nav-link active" href="settings.php">Settings</a>
         </li>
         <?php } ?>
+        <li class="nav-item">
+          <a class="nav-link active" href="create.php">Create Post</a>
+        </li>
         <?php } ?>
         <li class="nav-item">
           <a class="nav-link active" href="faq.php">FAQ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="post.php?id=<?php echo $randomPost; ?>">Discover</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
