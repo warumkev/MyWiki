@@ -16,17 +16,17 @@ if (isset($_GET["table"])) {
 
     if (strcmp($table, "users") == 0) {
 
-      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isAdminAccount) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
-      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isAdminAccount) VALUES (DEFAULT, 'User', '81dc9bdb52d04dc20036dbd8313ed055', 'user@mywiki.local', false);");
+      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isadminaccount) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
+      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isadminaccount) VALUES (DEFAULT, 'User', '81dc9bdb52d04dc20036dbd8313ed055', 'user@mywiki.local', false);");
 
       header('Location: logout.php');
 
     } else {
 
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '# Titel 1<br />\n## Titel 2<br />\n### Titel 3<br />\n`Code-Ausschnitt`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Titel des Beitrags', '# Titel 1<br />\n## Titel 2<br />\n### Titel 3<br />\n`Code-Ausschnitt`<br />\n', DEFAULT, DEFAULT, 2);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Title of the post', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Title of the post', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
 
-      header('Location: settings.php');
+      header('Location: home.php');
     }
   }
 }
