@@ -24,11 +24,11 @@ if (isset($_GET['search'])) {
 
   $query = $_GET['keyword'];
 
-  $results = pg_query($dbConn, "SELECT id, title, cover, views, author FROM public.posts WHERE title LIKE '%$query%' ORDER BY id");
+  $results = pg_query($dbConn, "SELECT * FROM public.posts WHERE title LIKE '%$query%' ORDER BY id");
 
 } else {
 
-  $results = pg_query($dbConn, "SELECT id, title, cover, views, author FROM public.posts ORDER BY id");
+  $results = pg_query($dbConn, "SELECT * FROM public.posts ORDER BY id");
 
 }
 
@@ -38,7 +38,7 @@ if (isset($_GET['authorid'])) {
 
   $authorId = $_GET['authorid'];
 
-  $results = pg_query($dbConn, "SELECT id, title, cover, views, author FROM public.posts WHERE author = '$authorId' ORDER BY id");
+  $results = pg_query($dbConn, "SELECT * FROM public.posts WHERE author = '$authorId' ORDER BY id");
 
 }
 
@@ -160,8 +160,7 @@ if (isset($_POST["register"])) {
 
     $passwordMatch = False;
 
-  }
-  if ($usernameExist > 0) {
+  } else if ($usernameExist > 0) {
 
     $usernameMatch = True;
 
@@ -181,6 +180,7 @@ if (isset($_POST["register"])) {
 
 // Nutzeranmeldung
 
+$loginError = False;
 $loginCheck = True;
 
 if (isset($_POST["login"])) {
@@ -192,7 +192,9 @@ if (isset($_POST["login"])) {
 
   $login_check = pg_num_rows($sql);
 
-  if ($login_check > 0) {
+ if (!isset($username) || trim($username) == '' || !isset($password) || trim($password) == '') {
+    $loginError = True;
+ } else if ($login_check > 0) {
 
     $result = pg_query($dbConn, "SELECT id FROM public.users WHERE username LIKE '$username' AND passwordhash LIKE '$password'");
 
@@ -202,7 +204,7 @@ if (isset($_POST["login"])) {
     $_SESSION['loggedin'] = True;
     $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE username LIKE '$username'");
     $isAdminCheck = pg_fetch_assoc($isAdminResult);
-    if ($isAdminCheck['isAdminAccount'] == 't') {
+    if ($isAdminCheck['isadminaccount'] == 't') {
       $_SESSION['isAdmin'] = True;
     } else {
     }
@@ -223,7 +225,7 @@ if (isset($_SESSION['loggedin'])) {
   $tempID = $_SESSION['userid'];
   $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE id = $tempID");
   $isAdminCheck = pg_fetch_assoc($isAdminResult);
-  if ($isAdminCheck['isAdminAccount'] == 't') {
+  if ($isAdminCheck['isadminaccount'] == 't') {
     $_SESSION['isAdmin'] = True;
   } else {
   }

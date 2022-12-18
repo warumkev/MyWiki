@@ -12,11 +12,10 @@
   </div>
 
   <div class="col mb-3">
-    <h5>Links</h5>
+    <h5>Basics</h5>
     <ul class="nav flex-column">
-      <li class="nav-item mb-2"><a href="home.php" class="nav-link p-0 text-muted">Startseite</a></li>
-      <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">Über uns</a></li>
-      <li class="nav-item mb-2"><a href="home.php" class="nav-link p-0 text-muted">Beiträge</a></li>
+      <li class="nav-item mb-2"><a href="home.php" class="nav-link p-0 text-muted">Homepage</a></li>
+      <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About us</a></li>
       <li class="nav-item mb-2"><a href="faq.php" class="nav-link p-0 text-muted">FAQs</a></li>
       <li class="nav-item mb-2"><a href="https://github.com/kev9euf3rois/Wiki/" target="_blank"
           class="nav-link p-0 text-muted">GitHub</a></li>
@@ -35,7 +34,7 @@
   ?>
 
   <div class="col mb-3">
-    <h5>Beliebtester Beitrag</h5>
+    <h5>Popular page</h5>
     <ul class="nav flex-column">
       <li class="nav-item mb-2">
         <?php
@@ -47,7 +46,7 @@
         <?php } else { ?>
         <a href="post.php?id=<?php echo $favoritePostInfo['id']; ?>" class="nav-link p-0 text-muted">
           <?php echo $favoritePostInfo['title']; ?>
-        </a><span class="badge badge-warning">Warning</span>
+        </a>
       </li>
       <?php } ?>
     </ul>

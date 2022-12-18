@@ -31,14 +31,28 @@ include('./includes/connect.php');
     </section>
     <div class="jumbotron">
       <h1 class="display-4"><span class="text-warning">my</span>Wiki</h1>
-      <p class="lead">Willkommen auf der myWiki-Website. Hier kannst du dich mit deinen Kollegen über verschiedenste
-        Themen austauschen. </p>
-      <hr class="my-4">
-      <p>Du kannst auch auf schon gelistete Ergebnisse zurückgreifen, um dir die Arbeit so entspannt wie möglich zu
-        gestalten.</p>
+      <p class="lead">Welcome to myWiki! We are a business-driven resource for all sort information. Our goal is to
+        provide a comprehensive and accurate collection of knowledge about everything, including task specific topics or
+        just genereal information. Whether you're a beginner or an expert, we hope you'll find something of value on our
+        site.
+
+        Our wiki is constantly growing and evolving, with new content being added and updated all the time. We encourage
+        our employees to contribute and share their own knowledge and experiences. So don't be afraid to jump in and
+        start
+        editing – every contribution helps to make our wiki even better.
+
+        Thank you for visiting and we hope you enjoy your time on our site!</p>
       <p class="lead">
-        <a class="btn btn-dark btn-lg" href="about.php" role="button">Lerne mehr über uns</a>
+        <a class="btn btn-dark btn-lg" href="about.php" role="button">About this project</a>
       </p>
+      <hr class="my-4">
+      <?php if (!isset($_SESSION['loggedin'])) { ?>
+      <p>Want to contribute to our wiki? <a class="link-warning" style="text-decoration: none;" href="register.php">Sign
+          up</a> to create and edit pages. It's free and easy to get started! <span class="text-muted"> You already have
+          an account? <a class="link-warning" style="text-decoration: none;" href="login.php">Log in</a> </span></p>
+      <?php } else {
+      } ?>
+
     </div>
     <br>
     <div class="row">
@@ -47,6 +61,7 @@ include('./includes/connect.php');
         $titel = $row['title'];
         $id = $row['id'];
         $cover = $row['cover'];
+        $content = $row['content'];
         $authorid = $row['author'];
 
         $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
@@ -55,17 +70,18 @@ include('./includes/connect.php');
 
       ?>
       <div class="col-sm-6" style="width: 16rem;">
-        <div class="card mb-4 text-black bg-light border border-dark">
-          <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail"
+        <div class="card mb-4 text-dark bg-light border border-black">
+          <img src="./img/<?php echo $cover; ?>" class="card-img-top img-thumbnail bg-dark border-dark"
             style="height: 14rem; object-fit: cover;" alt="/img/<?php echo $cover; ?>">
           <div class="card-body">
             <h5 class="card-title">
               <?php echo $titel; ?>
             </h5>
-            <p class="card-text">Verfasst von:
+            <p class="card-text">
+              By:
               <?php echo $cardAuthor['username']; ?>
             </p>
-            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-dark">Zum Beitrag</a>
+            <a href="post.php?id=<?php echo $id; ?>" class="btn btn-outline-dark">Read more</a>
           </div>
         </div>
       </div>

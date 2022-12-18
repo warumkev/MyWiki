@@ -24,12 +24,6 @@ include('./includes/connect.php');
 
   <div class="container">
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Wer sind wir?</h1>
-        <p class="lead">Wir sind eine Gruppe aus Studenten der IU International University of Applied Science.</p>
-      </div>
-    </div>
 
     <div class="px-4 py-5 my-5 text-center">
       <img class="d-block mx-auto mb-4" src="./assets/brand/wikiLogo.svg" alt="" width="72" height="57">
@@ -41,11 +35,17 @@ include('./includes/connect.php');
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <a href="https://github.com/kev9euf3rois/Wiki" target="_blank"><button type="button"
-              class="btn btn-outline-secondary btn-lg px-4">GitHub Repo</button></a>
+              class="btn btn-outline-warning btn-lg px-4">GitHub Repo</button></a>
         </div>
       </div>
     </div>
 
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Wer sind wir?</h1>
+        <p class="lead">Wir sind eine Gruppe aus Studenten der IU International University of Applied Science.</p>
+      </div>
+    </div>
     <div class="container my-5">
       <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
@@ -58,7 +58,7 @@ include('./includes/connect.php');
             Internationale Hochschule seit 2021 die größte Hochschule in Deutschland.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
             <a href="https://iu.de/" target="_blank"><button type="button"
-                class="btn btn-outline-secondary btn-lg px-4">Zur Website</button></a>
+                class="btn btn-outline-dark btn-lg px-4">Zur Website</button></a>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
