@@ -55,25 +55,32 @@ include('./includes/connect.php');
 
     </div>
     <br>
-    <?php if (isset($_SESSION['loggedin'])) { ?>
-    <div class="container" style="width: 17rem; float: left;">
-      <form class="col-sm-18" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Write a message" aria-label="Message" aria-describedby="msgSend" name="msgContent" id="msgContent">
-          <input class="btn btn-outline-dark" type="submit" name="msgSend" id="msgSend" value="Send">
-        </div>
-      </form>
-    </div>
-    <?php } else {?>
-    <div class="container" style="width: 17rem; float: left;">
-      <form class="col-sm-18" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Join this conversation" aria-label="Message" aria-describedby="msgSend" name="msgContent" id="msgContent" disabled>
-          <a href="login.php" class="btn btn-outline-dark" type="submit" name="msgSend" id="msgSend" value="" disabled>Log in</a>
-        </div>
-      </form>
-    </div>
-      <?php } ?>
+    <?php if ($chatError == True) { ?>
+
+<div class="alert alert-warning" role="alert" style="width: 17rem; float: left;">
+    <h4 class="alert-heading">Invalid input!</h4>
+</div>
+
+<?php } else{}
+ if (isset($_SESSION['loggedin'])) { ?>
+      <div class="container" style="width: 17rem; float: left; clear: both;">
+        <form class="col-sm-18" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Write a message" aria-label="Message" aria-describedby="msgSend" name="msgContent" id="msgContent">
+            <input class="btn btn-outline-dark" type="submit" name="msgSend" id="msgSend" value="Send">
+          </div>
+        </form>
+      </div>
+    <?php } else { ?>
+      <div class="container" style="width: 17rem; float: left; clear: both;">
+        <form class="col-sm-18" method="post" id="chatForm">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Join this conversation" aria-label="Message" aria-describedby="msgSend" name="msgContent" id="msgContent" disabled>
+            <a href="login.php" class="btn btn-outline-dark" type="submit" name="msgSend" id="msgSend" value="" disabled>Log in</a>
+          </div>
+        </form>
+      </div>
+    <?php } ?>
     <div class="container" style="height: 30rem; width: 17rem; float: left; overflow-y: scroll; clear: both;" id="chatbox">
       <?php while ($msg = pg_fetch_assoc($chatMessages)) {
 
@@ -86,7 +93,7 @@ include('./includes/connect.php');
       ?>
         <p><strong><?php echo $getSender['username']; ?>:</strong> <span class="text-muted"><?php echo $content; ?></span></p>
       <?php } ?>
-    </div><br>
+    </div>
 
     <div class="row">
       <?php while ($row = pg_fetch_assoc($results)) {
@@ -124,7 +131,8 @@ include('./includes/connect.php');
 
   </div>
   <script>
-    function reloadDiv() {
+    // Aktualisiere nur den Div "chatbox" - Funktion
+    function reloadChat() {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -135,21 +143,25 @@ include('./includes/connect.php');
       xhttp.send();
 
     }
-    // Chatbox aktualisieren
+
+    // Chatbox aktualisieren - Intervall
     setInterval(function() {
-      reloadDiv();
-    }, 2000);
+      reloadChat();
+    }, 250);
+
     // Automatisch an das Ende scrollen
     var elem = document.getElementById('chatbox');
     elem.scrollTop = elem.scrollHeight;
+
     // Position beim absenden der Nachricht merken & dahin zurück scrollen
     document.addEventListener("DOMContentLoaded", function(event) {
-      var scrollpos = localStorage.getItem('scrollpos');
-      if (scrollpos) window.scrollTo(0, scrollpos);
+      var pagePosition = localStorage.getItem('scrollpos');
+      if (pagePosition) window.scrollTo(0, pagePosition);
     });
     window.onbeforeunload = function(e) {
       localStorage.setItem('scrollpos', window.scrollY);
     };
+
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
