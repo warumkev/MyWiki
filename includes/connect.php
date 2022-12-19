@@ -245,8 +245,15 @@ if (isset($_SESSION['userid'])) {
 
 $chatMessages = pg_query($dbConn, "SELECT * FROM public.messages ORDER BY id");
 
+$chatError = False;
+
 if (isset($_POST['msgSend'])) {
   $msgSender = $_SESSION['userid'];
   $msgContent = $_POST['msgContent'];
-  pg_query($dbConn, "INSERT INTO messages (id, sender, content, sentat) VALUES (DEFAULT, $msgSender, '$msgContent', NOW())");
+
+  if (!isset($msgContent) || trim($msgContent) == '') {
+    $chatError = True;
+  } else {
+    pg_query($dbConn, "INSERT INTO messages (id, sender, content, sentat) VALUES (DEFAULT, $msgSender, '$msgContent', NOW())");
+  }
 }
