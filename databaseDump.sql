@@ -1,4 +1,4 @@
-F--
+--
 -- PostgreSQL database dump
 --
 
@@ -22,13 +22,6 @@ SET row_security = off;
 -- TOC entry 3336 (class 1262 OID 40992)
 -- Name: myWiki; Type: DATABASE; Schema: -; Owner: postgres
 --
-
-CREATE DATABASE "myWiki" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'German_Germany.1252';
-
-
-ALTER DATABASE "myWiki" OWNER TO postgres;
-
-\connect "myWiki"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -98,7 +91,7 @@ ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 CREATE TABLE IF NOT EXISTS public.users
 (
-    id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+    id SERIAL PRIMARY KEY,
     username text COLLATE pg_catalog."default" NOT NULL,
     passwordhash text COLLATE pg_catalog."default" NOT NULL,
     email text COLLATE pg_catalog."default" NOT NULL,
