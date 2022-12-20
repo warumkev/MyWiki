@@ -39,7 +39,8 @@ Wir nutzen folgende Software zur Entwicklung:
 
 ### Datenbank
 
-1. databaseDump.sql in pgAdmin importieren
+1. In pgAdmin eine Database 
+2. databaseDump.sql in pgAdmin importieren
 
 ### Projekt
 
