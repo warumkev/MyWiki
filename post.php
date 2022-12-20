@@ -78,9 +78,13 @@ if (isset($_GET['id'])) {
       <tbody>
         <tr>
           <td>
-            <md-block>
-              <?php echo $row['content']; ?>
-            </md-block>
+            <?php
+            include("./includes/parsedown-1.7.4/Parsedown.php");
+
+            echo Parsedown::instance()
+              ->setSafeMode(true)
+              ->text($row['content']);
+            ?>
           </td>
         </tr>
       </tbody>
