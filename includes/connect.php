@@ -102,7 +102,7 @@ if (isset($_POST["post"])) {
       $newContent = $_POST['content'];
       $newAuthor = $_SESSION['userid'];
 
-      $newContent = nl2br($newContent);
+      // $newContent = nl2br($newContent);
       $newContent = stripslashes($newContent);
 
 
@@ -125,7 +125,7 @@ if (isset($_POST["update"])) {
   $newContent = $_POST['content'];
   $newAuthor = $_SESSION['userid'];
 
-  $newContent = nl2br($newContent);
+  // $newContent = nl2br($newContent);
   $newContent = stripslashes($newContent);
 
   pg_query($dbConn, "UPDATE public.posts SET title='$newTitle', content='$newContent', author='$newAuthor' WHERE id=$postid");
@@ -223,9 +223,8 @@ if (isset($_SESSION['loggedin'])) {
   $tempID = $_SESSION['userid'];
   $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE id = $tempID");
   $isAdminCheck = pg_fetch_assoc($isAdminResult);
-  if ($isAdminCheck['accounttype'] == 't') {
+  if ($isAdminCheck['isAdminAccount'] == 't') {
     $_SESSION['isAdmin'] = True;
-  } else {
   }
 
 }
