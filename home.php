@@ -32,7 +32,7 @@ include('./includes/connect.php');
       <h1 class="display-4"><span class="text-warning">my</span>Wiki</h1>
       <p class="lead">Welcome to myWiki! We are a business-driven resource for all sort information. Our goal is to
         provide a comprehensive and accurate collection of knowledge about everything, including task specific topics or
-        just genereal information. Whether you're a beginner or an expert, we hope you'll find something of value on our
+        just general information. Whether you're a beginner or an expert, we hope you'll find something of value on our
         site.
         <br><br>
         Our wiki is constantly growing and evolving, with new content being added and updated all the time. We encourage
