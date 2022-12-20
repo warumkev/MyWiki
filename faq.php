@@ -29,25 +29,25 @@ include('./includes/connect.php');
         <div class="col-lg-6 col-md-8 mx-auto">
           <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
           <h1 class="fw-light">FAQ</h1>
-          <p class="lead text-muted">Hier findest du häufig gestellte Fragen zu myWiki.</p>
+          <p class="lead text-muted">Here you will find frequently asked questions about myWiki.</p>
         </div>
       </div>
     </section>
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light rounded-3">
-          <h2>Du hast eine Frage?</h2>
-          <p>Wenn es ungeklärte Fragen deienrseits gibt, zögere nicht uns zu kontaktieren. Schreib uns eine Email mit
-            deinem Anliegen und wir kommen so schnell wie möglich darauf zurück.</p>
-          <a href="mailto:kevin.tamme@iu-study.org"><button class="btn btn-outline-dark" type="button">Jetzt
-              kontaktieren</button></a>
+          <h2>You have a question?</h2>
+          <p>If you have any unresolved questions, do not hesitate to contact us. Send us an email with your concern and
+            we will get back to you as soon as possible.</p>
+          <a href="mailto:kevin.tamme@iu-study.org"><button class="btn btn-outline-dark" type="button">Contact
+              now</button></a>
         </div>
       </div>
       <div class="col-md-6">
         <div class="h-100 p-5 text-bg-dark border rounded-3">
           <h2>Information</h2>
-          <p>Wir arbeiten stets daran, die Benutzeroberfläche so einfach und verständlich wie möglich zu halten. Dennoch
-            kommt es immer wieder zu Fragen. Die wichtigsten Antworten findest du unten aufgelistet in unserem FAQ.</p>
+          <p>"We are always working to keep the user interface as simple and understandable as possible. Nevertheless,
+            questions always arise. You can find the most important answers listed below in our FAQ.</p>
         </div>
       </div>
     </div>
@@ -57,15 +57,15 @@ include('./includes/connect.php');
         <h2 class="accordion-header" id="headingOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
-            Warum finde ich meinen Beitrag nicht?
+            Why can't I find a specific post?
           </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Versuche sicher zu stellen, dass du den richtigen Suchbegriff verwendet hast und der Beitrag noch existiert.
-            Sollte es immer noch nicht funktionieren kontaktiere bitte unseren <a
-              href="mailto:kevin.tamme@iu-study.org"><strong>Support</strong></a>
+            Try to make sure you are using the correct search term and that the post still exists. If it still does not
+            work, please contact our <a class="text-warning" style="text-decoration: none;"
+              href="mailto:kevin.tamme@iu-study.org"><strong>support</strong></a>
           </div>
         </div>
       </div>
@@ -73,14 +73,14 @@ include('./includes/connect.php');
         <h2 class="accordion-header" id="headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Wie kann ich Beiträge erstellen?
+            How do I create posts?
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Um Beiträge bei myWiki zu erstellen,, musst du dich zunächst anmelden bzw. registrieren. Anschließend
-            findest du in der Navigationsleiste den Abschnitt <strong>"Beitrag erstellen"</strong>.
+            To create posts on myWiki, you must first log in or register. Afterwards, you will find the <strong>Create Post</strong>
+            section in the navigation bar.
           </div>
         </div>
       </div>
@@ -88,14 +88,14 @@ include('./includes/connect.php');
         <h2 class="accordion-header" id="headingThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Wo kann ich meinen Account löschen?
+            How do i delete my account?
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Um deinen Account zu löschen, bitte klicke <a href="delete.php"><strong>hier</strong></a>. <span
-              class="badge bg-danger">Du musst angemeldet sein!</span>
+          To delete your account, please click <a class="text-warning" style="text-decoration: none;"
+              href="delete.php"><strong>here</strong></a>. <span class="badge bg-danger">You need to be logged in!</span>
           </div>
         </div>
       </div>

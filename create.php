@@ -15,7 +15,7 @@ if (!isset($_SESSION['loggedin'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MyWiki | Beitrag erstellen</title>
+  <title>MyWiki | Contribute</title>
   <link rel="icon" type="image/x-icon" href="assets/brand/wikiLogo.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -32,8 +32,8 @@ if (!isset($_SESSION['loggedin'])) {
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
-          <h1 class="fw-light">Beitrag erstellen</h1>
-          <p class="lead text-muted">Hier kannst du neue Beiträge auf myWiki veröffentlichen.</p>
+          <h1 class="fw-light">Contribute now</h1>
+          <p class="lead text-muted">Here you can create new posts on myWiki.</p>
         </div>
       </div>
     </section>
@@ -41,19 +41,18 @@ if (!isset($_SESSION['loggedin'])) {
       <?php if ($uploadSuccess == True) { ?>
 
       <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Erfolgreich erstellt!</h4>
-        <p>Der Beitrag wurde erfolgreich in die Datenbank übernommen und kann nun von jedermann eingesehen werden.
-          Hurra!
+        <h4 class="alert-heading">Created successfully!</h4>
+        <p>The post has been successfully added to the database and can now be viewed by anyone. Hurray!
         </p>
         <hr>
-        <p>Danke für deinen Beitrag!</p>
+        <p>Thanks for your contribution.</p>
 
       </div>
 
       <?php } else if (!empty($errors)) { {
         foreach ($errors as $error) { ?>
       <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Fehler beim Hochladen</h4>
+        <h4 class="alert-heading">Error while uploading</h4>
         <p>
           <?php echo $error; ?>
         </p>
@@ -63,22 +62,20 @@ if (!isset($_SESSION['loggedin'])) {
     } ?>
       <form class="row g-3" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-          <label for="title" class="form-label">Titel des Beitrags</label>
-          <input type="text" class="form-control" id="title" placeholder="Gib den Titel des Beitrags ein." name="title">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Please enter the title." name="title">
         </div>
         <div class="mb-3">
-          <label for="content" class="form-label">Inhalt des Beitrags</label> <a
-            href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-primary">Basic
-              Markdown
-              wird unterstützt</span></a>
-          <textarea class="form-control" id="content" rows="3" placeholder="Gib den Inhalt des Beitrags ein."
+          <label for="content" class="form-label">Content</label> <a
+            href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-warning">We support basic markdown syntax.</span></a>
+          <textarea class="form-control" id="content" rows="3" placeholder="Please enter the content."
             name="content"></textarea>
         </div>
         <div class="input-group mb-3">
           <input type="file" class="form-control" name="coverName" id="fileToUpload">
         </div>
         <div class="col-auto">
-          <input type="submit" class="btn btn-primary mb-3" name="post">
+          <input type="submit" class="btn btn-warning mb-3" name="post" value="Create post">
         </div>
       </form>
       <div class="d-none">
