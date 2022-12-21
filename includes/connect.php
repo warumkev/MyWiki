@@ -38,7 +38,7 @@ if (isset($_GET['authorid'])) {
 
   $authorId = $_GET['authorid'];
 
-  $results = pg_query($dbConn, "SELECT * FROM public.posts WHERE author = '$authorId' ORDER BY id");
+  $results = pg_query($dbConn, "SELECT * FROM public.posts WHERE author_id = '$authorId' ORDER BY id");
 
 }
 
@@ -106,7 +106,7 @@ if (isset($_POST["post"])) {
       $newContent = stripslashes($newContent);
 
 
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
+      pg_query($dbConn, "INSERT INTO public.posts(id, title, body, cover_image_url, views, author_id) VALUES (DEFAULT, '$newTitle', '$newContent', '$fileName', DEFAULT, '$newAuthor')");
 
 
     }
@@ -225,7 +225,7 @@ if (isset($_SESSION['loggedin'])) {
   $tempID = $_SESSION['userid'];
   $isAdminResult = pg_query($dbConn, "SELECT * FROM public.users WHERE id = $tempID");
   $isAdminCheck = pg_fetch_assoc($isAdminResult);
-  if ($isAdminCheck['isadminaccount'] == 't') {
+  if ($isAdminCheck['isadmin'] == True) {
     $_SESSION['isAdmin'] = True;
   }
 
@@ -237,7 +237,7 @@ if (isset($_SESSION['userid'])) {
 
   $aid = $_SESSION['userid'];
 
-  $authorResults = pg_query($dbConn, "SELECT * FROM public.posts WHERE author = '$aid' ORDER BY id");
+  $authorResults = pg_query($dbConn, "SELECT * FROM public.posts WHERE author_id = '$aid' ORDER BY id");
 
 }
 
@@ -249,11 +249,11 @@ $chatError = False;
 
 if (isset($_POST['msgSend'])) {
   $msgSender = $_SESSION['userid'];
-  $msgContent = $_POST['msgContent'];
+  $msgContent = base64_encode($_POST['msgContent']);
 
   if (!isset($msgContent) || trim($msgContent) == '') {
     $chatError = True;
   } else {
-    pg_query($dbConn, "INSERT INTO messages (id, sender, content, sentat) VALUES (DEFAULT, $msgSender, '$msgContent', NOW())");
+    pg_query($dbConn, "INSERT INTO messages (id, author_id, content) VALUES (DEFAULT, $msgSender, '$msgContent')");
   }
 }

@@ -84,7 +84,7 @@ if (isset($_GET['id'])) {
             // markdown parser
             echo Parsedown::instance()
               ->setSafeMode(true)
-              ->text($row['content']);
+              ->text($row['body']);
             ?>
           </td>
         </tr>
