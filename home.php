@@ -86,7 +86,7 @@ include('./includes/connect.php');
 
         $id = $msg['id'];
         $content = $msg['content'];
-        $sender = $msg['sender'];
+        $sender = $msg['author_id'];
         $getSender = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$sender'");
         $getSender = pg_fetch_assoc($getSender);
 
@@ -100,9 +100,9 @@ include('./includes/connect.php');
 
         $titel = $row['title'];
         $id = $row['id'];
-        $cover = $row['cover'];
-        $content = $row['content'];
-        $authorid = $row['author'];
+        $cover = $row['cover_image_url'];
+        $content = $row['body'];
+        $authorid = $row['author_id'];
 
         $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
 

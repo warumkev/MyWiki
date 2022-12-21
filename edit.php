@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 if (isset($_GET['p'])) {
   $postid = $_GET['p'];
 
-  $results = pg_query($dbConn, "SELECT title, content, cover, views, author FROM public.posts WHERE id=$postid");
+  $results = pg_query($dbConn, "SELECT title, body, cover_image_url, views, author_id FROM public.posts WHERE id=$postid");
 
   $row = pg_fetch_assoc($results);
 
@@ -17,8 +17,8 @@ if (isset($_GET['p'])) {
 
   $newViews = $views + 1;
 
-  $cover = $row['cover'];
-  $authorid = $row['author'];
+  $cover = $row['cover_image_url'];
+  $authorid = $row['author_id'];
 
   $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
 
@@ -48,7 +48,7 @@ if (isset($_GET['p'])) {
   <br>
 
   <div class="container">
-  <section class="py-5 text-center container">
+    <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <img src="./assets/brand/wikiLogo.svg" class="rounded mx-auto d-block" height="100px"><br>
@@ -77,12 +77,15 @@ if (isset($_GET['p'])) {
           value="<?php echo $row['title']; ?>" name="title">
       </div>
       <div class="mb-3">
-        <label for="content" class="form-label">Content</label> <a
-          href="https://www.markdownguide.org/cheat-sheet/" target="_blank"><span class="badge bg-warning">We support basic markdown syntax.</span></a>
-        <textarea class="form-control" id="content" rows="3" placeholder="Please enter the content."
-          name="content"><?php $cont = $row['content'];
-          $inhalt = str_replace("<br />", "", $cont);
-          echo $inhalt; ?></textarea>
+        <label for="content" class="form-label">Content</label> <a href="https://www.markdownguide.org/cheat-sheet/"
+          target="_blank"><span class="badge bg-warning">We support basic markdown syntax.</span></a>
+        <textarea class="form-control" id="content" rows="3" placeholder="Please enter the content." name="content">
+          <?php 
+            $cont = $row['body'];
+            $inhalt = str_replace("<br />", "", $cont);
+            echo $inhalt;
+          ?>
+          </textarea>
       </div>
       <!-- <div class="input-group mb-3"> -->
       <!-- <input type="file" class="form-control" name="coverName" id="fileToUpload"> -->

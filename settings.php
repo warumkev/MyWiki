@@ -6,6 +6,7 @@ if (!isset($_SESSION['isAdmin'])) {
   header("Location: home.php");
 }
 
+// is this still necessary?? because of the DB faker
 if (isset($_GET["table"])) {
 
   $table = $_GET["table"];
@@ -16,23 +17,14 @@ if (isset($_GET["table"])) {
 
     if (strcmp($table, "users") == 0) {
 
-      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isadminaccount) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
-      pg_query($dbConn, "INSERT INTO public.users(id, username, passwordhash, email, isadminaccount) VALUES (DEFAULT, 'User', '81dc9bdb52d04dc20036dbd8313ed055', 'user@mywiki.local', false);");
+      pg_query($dbConn, "INSERT INTO public.users(id, username, password_hash, email, isAdmin) VALUES (DEFAULT, 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mywiki.local', true);");
+      pg_query($dbConn, "INSERT INTO public.users(id, username, password_hash, email, isAdmin) VALUES (DEFAULT, 'User', '81dc9bdb52d04dc20036dbd8313ed055', 'user@mywiki.local', false);");
 
       header('Location: logout.php');
 
     } else if (strcmp($table, "posts") == 0){
 
       pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.1', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.2', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.3', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.4', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.5', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.6', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.7', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.8', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.9', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 1);");
-      pg_query($dbConn, "INSERT INTO public.posts(id, title, content, cover, views, author) VALUES (DEFAULT, 'Post No.10', '# Title 1<br />\n## Title 2<br />\n### Title 3<br />\n`Code-Snippet`<br />\n', DEFAULT, DEFAULT, 2);");
       header('Location: home.php');
     } else if (strcmp($table, "messages") == 0){
       header('Location: home.php');

@@ -5,7 +5,7 @@ include('./includes/connect.php');
 if (isset($_GET['id'])) {
   $postid = $_GET['id'];
 
-  $results = pg_query($dbConn, "SELECT id, title, content, cover, views, author FROM public.posts WHERE id=$postid");
+  $results = pg_query($dbConn, "SELECT id, title, body, cover_image_url, views, author_id FROM public.posts WHERE id=$postid");
 
   $row = pg_fetch_assoc($results);
 
@@ -13,8 +13,8 @@ if (isset($_GET['id'])) {
 
   $newViews = $views + 1;
 
-  $cover = $row['cover'];
-  $authorid = $row['author'];
+  $cover = $row['cover_image_url'];
+  $authorid = $row['author_id'];
 
   $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
 
@@ -51,8 +51,8 @@ if (isset($_GET['id'])) {
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <img src="./img/<?php echo $row['cover']; ?>" class="rounded mx-auto d-block img-thumbnail"
-            style="height: 13rem; object-fit: cover;" alt="./img/<?php echo $row['cover']; ?>"><br>
+          <img src="./img/<?php echo $row['cover_image_url']; ?>" class="rounded mx-auto d-block img-thumbnail"
+            style="height: 13rem; object-fit: cover;" alt="./img/<?php echo $row['cover_image_url']; ?>"><br>
           <h1 class="fw-light">
             <?php echo $row['title']; ?> <a class="link-warning" href="edit.php?p=<?php echo $row['id']; ?>"><svg
                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                   d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
               </svg></a>
           </h1>
-          <p class="lead text-muted">Author: <a class="link-warning" style="text-decoration: none;" href="home.php?authorid=<?php echo $row['author']; ?>">
+          <p class="lead text-muted">Author: <a class="link-warning" style="text-decoration: none;" href="home.php?authorid=<?php echo $row['author_id']; ?>">
               <?php echo $cardAuthor['username']; ?>
             </a></p>
         </div>
@@ -81,6 +81,7 @@ if (isset($_GET['id'])) {
             <?php
             include("./includes/parsedown-1.7.4/Parsedown.php");
 
+            // markdown parser
             echo Parsedown::instance()
               ->setSafeMode(true)
               ->text($row['content']);

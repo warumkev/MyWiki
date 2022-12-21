@@ -122,8 +122,8 @@ $accountInfo = pg_fetch_assoc(pg_query($dbConn, "SELECT * FROM public.users WHER
 
                 $titel = $row['title'];
                 $id = $row['id'];
-                $cover = $row['cover'];
-                $authorid = $row['author'];
+                $cover = $row['cover_image_url'];
+                $authorid = $row['author_id'];
 
                 $getAuthor = pg_query($dbConn, "SELECT username FROM public.users WHERE id = '$authorid'");
 
