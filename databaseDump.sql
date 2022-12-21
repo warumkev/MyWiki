@@ -17,7 +17,7 @@
 ---------------- CREATE TABLES ----------------
 
 -- drop tables if they exist
-DROP TABLE IF EXISTS articles;
+DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS users;
 
@@ -32,13 +32,13 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT NOW()
 );
 
--- Create the articles table
-CREATE TABLE articles (
+-- Create the posts table
+CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   body TEXT NOT NULL,
   views INTEGER DEFAULT 0,
-  cover_image_url VARCHAR(255) DEFAULT 'img\default-articles.jpg',
+  cover_image_url VARCHAR(255) DEFAULT 'img\default-posts.jpg',
   author_id INTEGER REFERENCES users(id),
   created_at TIMESTAMP DEFAULT NOW()
 );
