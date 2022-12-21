@@ -2,207 +2,51 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 15.0
--- Dumped by pg_dump version 15.0
+---------------- CREATE DATABASE ----------------
+-- in pgadmin go to "Object" > "Create" > "Database..." > "SQL" and paste the following query
 
--- Started on 2022-11-29 21:38:59
+-- CREATE DATABASE "myWiki"
+--     WITH
+--     OWNER = postgres
+--     ENCODING = 'UTF8'
+--     CONNECTION LIMIT = -1
+--     IS_TEMPLATE = False;
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+-- CREATE EXTENSION pgcrypto;
 
---
--- TOC entry 3336 (class 1262 OID 40992)
--- Name: myWiki; Type: DATABASE; Schema: -; Owner: postgres
---
+---------------- CREATE TABLES ----------------
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+-- drop tables if they exist
+DROP TABLE IF EXISTS articles;
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS users;
 
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- TOC entry 217 (class 1259 OID 41006)
--- Name: posts; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.posts (
-    id integer NOT NULL,
-    title text NOT NULL,
-    content text NOT NULL,
-    cover text NOT NULL,
-    views integer DEFAULT 0 NOT NULL,
-    author integer NOT NULL
+-- Create the users table
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  isAdmin BOOLEAN DEFAULT FALSE,
+  userimage_url VARCHAR(255) DEFAULT 'img\default-users.jpg',
+  created_at TIMESTAMP DEFAULT NOW()
 );
 
+-- Create the articles table
+CREATE TABLE articles (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  body TEXT NOT NULL,
+  views INTEGER DEFAULT 0,
+  cover_image_url VARCHAR(255) DEFAULT 'img\default-articles.jpg',
+  author_id INTEGER REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT NOW()
+);
 
-ALTER TABLE public.posts OWNER TO postgres;
-
---
--- TOC entry 216 (class 1259 OID 41005)
--- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.posts_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.posts_id_seq OWNER TO postgres;
-
---
--- TOC entry 3337 (class 0 OID 0)
--- Dependencies: 216
--- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
-
-
---
--- TOC entry 215 (class 1259 OID 40997)
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
---
-
--- Table: public.users
-
--- DROP TABLE IF EXISTS public.users;
-
-CREATE TABLE IF NOT EXISTS public.users
-(
-    id SERIAL PRIMARY KEY,
-    username text COLLATE pg_catalog."default" NOT NULL,
-    passwordhash text COLLATE pg_catalog."default" NOT NULL,
-    email text COLLATE pg_catalog."default" NOT NULL,
-    "isAdminAccount" boolean NOT NULL DEFAULT false,
-    CONSTRAINT users_pkey PRIMARY KEY (id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.users
-    OWNER to postgres;
-
-
-ALTER TABLE public.users OWNER TO postgres;
-
---
--- TOC entry 214 (class 1259 OID 40996)
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.users_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.users_id_seq OWNER TO postgres;
-
---
--- TOC entry 3338 (class 0 OID 0)
--- Dependencies: 214
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
-
-
---
--- TOC entry 3179 (class 2604 OID 41009)
--- Name: posts id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_id_seq'::regclass);
-
-
---
--- TOC entry 3178 (class 2604 OID 41000)
--- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-
-
---
--- TOC entry 3330 (class 0 OID 41006)
--- Dependencies: 217
--- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 3328 (class 0 OID 40997)
--- Dependencies: 215
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 3339 (class 0 OID 0)
--- Dependencies: 216
--- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.posts_id_seq', 1, false);
-
-
---
--- TOC entry 3340 (class 0 OID 0)
--- Dependencies: 214
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
-
-
---
--- TOC entry 3184 (class 2606 OID 41014)
--- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.posts
-    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 3182 (class 2606 OID 41004)
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
-
-
--- Completed on 2022-11-29 21:38:59
-
---
--- PostgreSQL database dump complete
---
-
+-- Create the messages table
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY,
+  author_id INTEGER REFERENCES users(id),
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
