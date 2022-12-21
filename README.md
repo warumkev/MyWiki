@@ -40,20 +40,21 @@ Wir nutzen folgende Software zur Entwicklung:
 
 ### Datenbank
 
-1. In pgAdmin eine Database 
-2. databaseDump.sql in pgAdmin importieren
+1. In pgadmin go to `Object` > `Create` > `Database...` > `SQL` and run the query from `CREATE DATABASE` in the [databaseDump.sql](databaseDump.sql)
+2. Open the Query Tool (Alt + Shift + Q) and run the query from `CREATE TABLES`
+3. After that you can run the querys at [faker.sql](faker.sql) to get some example data in your database
 
 ### Projekt
 
-1. Zugangsdaten in /includes/credentials.php eintragen
+1. Zugangsdaten in [credentials.php](/includes/credentials.php) eintragen
 ```php
 <?php
 
-$host = ""; // localhost
-$port = ""; // 5432
-$db = ""; // myWiki
-$user = ""; // postgres
-$pw = "";
+    $host = ""; // localhost
+    $port = ""; // 5432
+    $db = ""; // myWiki
+    $user = ""; // postgres
+    $pw = "";
 
 ?>
 ```

@@ -3,7 +3,6 @@
 --
 
 ---------------- CREATE DATABASE ----------------
--- in pgadmin go to "Object" > "Create" > "Database..." > "SQL" and paste the following query
 
 -- CREATE DATABASE "myWiki"
 --     WITH
